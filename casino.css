@@ -1,0 +1,292 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: auto;   
+}
+
+.room{
+	position: relative;
+	width: 439px;
+	height: 328px;
+	background: url("img/room_bg.png") no-repeat, white;
+	box-sizing: border-box;
+}
+
+.table{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-44%,-50%);
+	width: 243px;
+	height: 118px;
+	border-radius: 60px;
+	box-sizing: border-box;
+	background: url("img/countertop.png") no-repeat, green;
+	box-shadow: 0 5px 20px 2px rgba(0,0,0,0.75);
+	
+}
+
+.croupier{
+	position: absolute;
+	top: 28%;
+	left: 50%;
+	transform: translate(-25%,-50%);
+}
+
+.hide{
+	display: none;
+}
+
+.get_eyes{
+	position: absolute;
+	top: 28%;
+	left: 50%;
+	transform: translate(-25%,-50%);
+}
+
+.cloth{
+	position: relative;
+	margin: 6px auto;
+	width: 230px;
+	height: 106px;
+	box-sizing: border-box;
+	border-radius: 65px;
+	background: #338d33;
+	box-shadow: inset 0px -1px 3px 0px rgba(0,0,0,0.75),
+				inset 0px 2px 3px 0px rgba(0,0,0,0.75);
+	padding-top: 10px;
+	text-align: center;				 
+}
+
+.table_number{
+	
+	font-family: 'Days One', sans-serif;
+	font-size: 15px;
+	color: #c2d8c3;
+	font-weight: 900;
+}
+
+.card{
+	width: 29px;
+	height: 42px;
+	display: inline-block;
+	margin-top: 6px;
+	cursor: pointer;
+	margin-right: -2px;
+
+}
+
+.card:nth-child(even){
+	background: url("img/eight.png") no-repeat -58px -10px;
+}
+
+.card:nth-child(odd){
+	background: url("img/nine.png") no-repeat -58px -10px;
+}
+
+.card:nth-child(odd):hover{
+	-webkit-animation: animove 1s linear;
+    animation: animove 1s linear;
+	background: url("img/nine.png") no-repeat -10px -10px;
+}
+
+.card:nth-child(even):hover{
+	-webkit-animation: animove 1s linear;
+    animation: animove 1s linear;
+	background: url("img/eight.png") no-repeat -10px -10px;
+}
+
+@-webkit-keyframes animove{
+ 	0%,100%{-webkit-transform: rotateY(0deg);transform: rotateY(0deg);}
+ 	50%{-webkit-transform: rotateY(180deg);transform: rotateY(180deg);}
+}
+@keyframes animove{
+ 	0%,100%{-webkit-transform: rotateY(0deg);transform: rotateY(0deg);}
+ 	50%{-webkit-transform: rotateY(180deg);transform: rotateY(180deg);}	
+} 
+
+.chip{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	background: url("img/fishka.png") no-repeat;
+	left: -12px;
+	bottom: 33px;
+	z-index: 1;
+	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.75);
+}
+
+.shape{
+	position: absolute;
+	width: 94px;
+	height: 42px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	left: 85px;
+	bottom: 40px;
+	z-index: 0;
+}
+
+.flash{
+	position: absolute;
+	font-family: 'Arial', sans-serif;
+	font-weight: 800;
+	font-size: 12px;
+	color: #da3a0a;
+	left: 27px;
+	bottom: 5px;
+	letter-spacing: -1px;
+}
+
+.card_left, .card_right{
+	position: absolute;
+	width: 28px;
+	height: 42px;
+	overflow: hidden;
+	box-sizing: border-box;
+	border: 1px solid #d1cdc3;
+}
+
+.card_left{
+	background: url("img/red_cut_card.png") no-repeat;
+	transform: rotateZ(-6deg);
+	left: 17px;
+	bottom: 28px;
+	z-index: 2;
+	box-shadow: -1px 3px 3px 0px rgba(0,0,0,0.35);
+}
+
+.card_right{
+	background: url("img/black_cut_card.png") no-repeat;
+	transform: rotateZ(17deg);
+	left: 37px;
+	bottom: 25px;
+	z-index: 3;
+	box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.35);
+}
+
+.green_but{
+	position: absolute;
+	width: 45px;
+	height: 17px;
+	left: 18px;
+    bottom: 17px;
+    z-index: 4;
+	box-sizing: border-box;
+	border: 1px solid #bba21c;
+	border-radius: 3px;
+	background: linear-gradient(to top, #019512, #6bd136);
+	line-height: 12px;
+	cursor: pointer;
+	color: #e9f8ed;
+}
+
+.wins{
+	text-align: center;
+	font-family: 'Arial', sans-serif;
+	font-weight: 800;
+	font-size: 12px;	
+}
+
+.wins:active{
+	color: #161616;
+}
+
+.small_chip{
+	position: absolute;
+	left: 4px;
+	bottom: 6px;
+	width: 22px;
+	height: 22px;
+	border-radius: 11px;
+	overflow: hidden;
+	background: url("img/chip_bg.png") no-repeat, #b1dae6;
+	color: #e4f3e8;
+	font-family: 'Arial', sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 22px;
+	text-align: center;
+	z-index: 5;
+}
+
+.small_chip>p{
+	margin-right: 1px;
+}
+
+.neponyatnaya_shtuka{
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+}
+
+.gold_shadow{
+	box-shadow: 5px -5px 7px 3px rgba(250,209,25,0.25),
+				-5px 5px 7px 3px rgba(250,209,25,0.25),
+				-5px -5px 7px 3px rgba(250,209,25,0.25),
+				5px 5px 7px 3px rgba(250,209,25,0.25);
+}
+
+
+.cd_l{
+	box-shadow: 5px -5px 7px 3px rgba(250,209,25,0.25),
+				-5px -5px 7px 3px rgba(250,209,25,0.25);				
+}
+
+.cd_r{
+	box-shadow: 5px -5px 7px 3px rgba(250,209,25,0.25);
+}
+
+.ch{
+	box-shadow: -5px -5px 7px 3px rgba(250,209,25,0.25);
+}
